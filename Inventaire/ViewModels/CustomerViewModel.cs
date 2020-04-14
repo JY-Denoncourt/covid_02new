@@ -7,11 +7,19 @@ namespace BillingManagement.UI.ViewModels
 {
     public class CustomerViewModel : BaseViewModel
     {
+        //-------------------------------------------------------------------------------- Variables
+
+        #region //Variables
         readonly CustomersDataService customersDataService = new CustomersDataService();
 
         private ObservableCollection<Customer> customers;
         private Customer selectedCustomer;
 
+        #endregion
+
+        //-------------------------------------------------------------------------------- Definition
+
+        #region //Definitions
         public ObservableCollection<Customer> Customers
         {
             get => customers;
@@ -32,11 +40,17 @@ namespace BillingManagement.UI.ViewModels
             }
         }
 
+        #endregion
+
+        //-------------------------------------------------------------------------------- Constructeur
+        
         public CustomerViewModel()
         {
             InitValues();
         }
 
+        //-------------------------------------------------------------------------------- Methodes
+        
         private void InitValues()
         {
             Customers = new ObservableCollection<Customer>(customersDataService.GetAll());

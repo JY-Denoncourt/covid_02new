@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BillingManagement.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -7,6 +8,8 @@ namespace app_models
 {
     public class Customer : INotifyPropertyChanged
     {
+        //---------------------------------------------------------------- Variables
+
         private string name;
         private string lastName;
         private string address;
@@ -15,6 +18,8 @@ namespace app_models
         private string postalCode;
         private string picturePath;
         private string contactInfo;
+
+        //---------------------------------------------------------------- Definitions
 
         #region Property definitions
         public string Name
@@ -27,6 +32,7 @@ namespace app_models
                 OnPropertyChanged(nameof(Info));
             }
         }
+        
         public string LastName { get => lastName; 
             set
             {
@@ -35,6 +41,7 @@ namespace app_models
                 OnPropertyChanged(nameof(Info));
             }
         }
+        
         public string Address { get => address; 
             set
             {
@@ -42,6 +49,7 @@ namespace app_models
                 OnPropertyChanged();
             }
         }
+        
         public string City { get => city;
             set
             {
@@ -49,6 +57,7 @@ namespace app_models
                 OnPropertyChanged();
             }
         }
+        
         public string Province { get => province;
             set
             {
@@ -56,6 +65,7 @@ namespace app_models
                 OnPropertyChanged();
             }
         }
+        
         public string PostalCode { get => postalCode;
             set
             {
@@ -63,6 +73,7 @@ namespace app_models
                 OnPropertyChanged();
             }
         }
+        
         public string PicturePath { get => picturePath;
             set
             {
@@ -82,15 +93,19 @@ namespace app_models
         }
 
         public string Info => $"{LastName}, {Name}";
+        
+        public ObservableCollection<ContactInfo> ContactInfos { get; set; }
 
+        public ObservableCollection<Invoice> Invoices { get; set; }
         #endregion
 
+        //---------------------------------------------------------------- Constructeur
         public Customer()
         {
             PicturePath = "images/user.png";
         }
 
-        public ObservableCollection<ContactInfo> ContactInfos { get; set; }
+        //---------------------------------------------------------------- Methodes
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -98,5 +113,6 @@ namespace app_models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }

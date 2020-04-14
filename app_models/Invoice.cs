@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace BillingManagement.Models
 {
-    class Invoice : INotifyPropertyChanged
+    public class Invoice : INotifyPropertyChanged
     {
         #region //Variables
         public static int globalID = 0;
@@ -49,6 +49,7 @@ namespace BillingManagement.Models
             }
         }
 
+
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
@@ -78,6 +79,7 @@ namespace BillingManagement.Models
 
         public double Total => subTotal + FedTax + ProvTax;
 
+        public string Info => $"{CreationDateTime} : {Total}";
         protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -87,4 +89,4 @@ namespace BillingManagement.Models
     }
 
 }
-}
+
