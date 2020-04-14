@@ -10,6 +10,7 @@ namespace app_models
     {
         //---------------------------------------------------------------- Variables
 
+        #region //Variables
         private string name;
         private string lastName;
         private string address;
@@ -18,6 +19,7 @@ namespace app_models
         private string postalCode;
         private string picturePath;
         private string contactInfo;
+        #endregion
 
         //---------------------------------------------------------------- Definitions
 
@@ -102,11 +104,14 @@ namespace app_models
         //---------------------------------------------------------------- Constructeur
         public Customer()
         {
-            PicturePath = "images/user.png";
+            Invoices = new ObservableCollection<Invoice>();
+            ContactInfos = new ObservableCollection<ContactInfo>();
+            PicturePath = "images/goat.jpg";
         }
 
         //---------------------------------------------------------------- Methodes
 
+        #region //Methodes
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)
@@ -114,5 +119,6 @@ namespace app_models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        #endregion
     }
 }

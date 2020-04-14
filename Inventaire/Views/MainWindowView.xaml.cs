@@ -9,14 +9,13 @@ namespace Inventaire
     /// </summary>
     public partial class MainWindowView : Window
     {
-        CustomerViewModel _vm;
+        
 
-        public MainWindowView(CustomerViewModel vm)
+        public MainWindowView()
         {
             InitializeComponent();
 
-            _vm = vm;
-            DataContext = _vm;
+            DataContext = new MainViewModel();
         }
 
 

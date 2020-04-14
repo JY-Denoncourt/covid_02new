@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="images\exit.png" />
+    <None Remove="images\goat.jpg" />
     <None Remove="images\new_user.png" />
     <None Remove="images\user.png" />
   </ItemGroup>
@@ -19,6 +20,9 @@
 
   <ItemGroup>
     <Resource Include="images\exit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\goat.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\new_user.png">

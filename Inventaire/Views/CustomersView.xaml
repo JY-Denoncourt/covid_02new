@@ -68,20 +68,17 @@
                 <TextBox MinWidth="250" Text="{Binding SelectedCustomer.Address}"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Grid.Column="0"
-                        Orientation="Horizontal" Margin="3" >
+            <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" Margin="3" >
                 <TextBlock Text="Ville :" Width="75"/>
                 <TextBox MinWidth="175" Text="{Binding SelectedCustomer.City}"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Grid.Column="1" 
-                        Orientation="Horizontal" Margin="3">
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Province :" Width="75"/>
                 <TextBox MinWidth="50" Text="{Binding SelectedCustomer.Province}"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="4" Grid.Column="0" 
-                        Orientation="Horizontal" Margin="3">
+            <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Code postal :" Width="75"/>
                 <TextBox MinWidth="125" Text="{Binding SelectedCustomer.PostalCode}"/>
             </StackPanel>
@@ -89,9 +86,13 @@
             <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                         Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Contact :" Width="75"/>
-                <TextBlock MinWidth="125" Text="{Binding  SelectedCustomer.ContactInfo}"/>
 
-
+                <DataGrid ItemsSource="{Binding SelectedCustomer.ContactInfos}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding ContactType}"/>
+                        <DataGridTextColumn Header="Contact" Binding="{Binding Contact}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
 
             <StackPanel Grid.Row="6" Grid.Column="2" Margin="6">

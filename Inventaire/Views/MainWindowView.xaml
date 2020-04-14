@@ -4,11 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventaire"
+        xmlns:vm="clr-namespace:BillingManagement.UI.ViewModels"
+        xmlns:views="clr-namespace:BillingManagement.UI.Views"
         mc:Ignorable="d"
         Title="Gestion de clients" Width="800" Height="500"
-        MinHeight="600" MinWidth="640"
-        DataContext="{Binding RelativeSource={RelativeSource self}}">
-    
+        MinHeight="600" MinWidth="640">
+
+    <Window.Resources>
+
+        <DataTemplate DataType="{x:Type vm:CustomerViewModel}">
+            <views:CustomersView DataContext="{Binding}"/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:InvoiceViewModel}">
+            <views:InvoicesView DataContext="{Binding}"/>
+        </DataTemplate>
+
+    </Window.Resources>
+
+
+
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
             <Menu>
@@ -48,10 +63,10 @@
         
         <StatusBar DockPanel.Dock="Bottom" Height="25">
             <TextBlock Text="Client sélectionné : " />
-            <TextBlock Text="{Binding SelectedCustomer.Info}" />
+            <TextBlock Text="{Binding Path=ContentViewModel.SelectedCustomer.Info}" />
         </StatusBar>
 
 
-        <ContentPresenter />
+        <ContentPresenter x:Name="ContentPresenter" Content="{Binding ContentViewModel}"/>
     </DockPanel>
 </Window>
