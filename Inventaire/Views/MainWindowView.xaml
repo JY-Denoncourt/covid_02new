@@ -36,15 +36,22 @@
                     <Separator/>
                     <MenuItem Header="_Quitter" Click="Exit_Click"/>
                 </MenuItem>
+               
                 <MenuItem Header="_Édition">
                     <MenuItem Header="Couper..."/>
                     <MenuItem Header="Copier"/>
                     <MenuItem Header="Coller"/>
                 </MenuItem>
+                
                 <MenuItem Header="Affichage">
                     <MenuItem Header="Fonction 1"/>
                     <MenuItem Header="Fonction 2"/>
                     <MenuItem Header="Fonction 3"/>
+                </MenuItem>
+                
+                <MenuItem Header="Enregistrement">
+                    <MenuItem Header="Clients" Command="{Binding ChangeViewCommand}" CommandParameter="customers"/>
+                    <MenuItem Header="Factures" Command="{Binding ChangeViewCommand}" CommandParameter="invoices"/>
                 </MenuItem>
             </Menu>
         </StackPanel>
@@ -63,7 +70,7 @@
         
         <StatusBar DockPanel.Dock="Bottom" Height="25">
             <TextBlock Text="Client sélectionné : " />
-            <TextBlock Text="{Binding Path=ContentViewModel.SelectedCustomer.Info}" />
+            <TextBlock Text="{Binding Path=ContentViewModel.SelectedCustomer.Info}"/>
         </StatusBar>
 
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using app_models;
+using BillingManagement.UI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,10 +20,16 @@ namespace BillingManagement.UI.Views
     /// </summary>
     public partial class CustomersView : UserControl
     {
+        
         public CustomersView()
         {
             InitializeComponent();
+            
         }
+
+
+        //----------------------------------------------------------------------------------------- Methodes
+       
 
         private void CustomerDelete_Click(object sender, RoutedEventArgs e)
         {

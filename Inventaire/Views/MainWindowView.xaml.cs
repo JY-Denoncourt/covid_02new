@@ -11,21 +11,24 @@ namespace Inventaire
     {
         
 
+
         public MainWindowView()
         {
             InitializeComponent();
 
             DataContext = new MainViewModel();
+            
         }
-
 
         private void CustomerNew_Click(object sender, RoutedEventArgs e)
         {
-            /*Customer temp = new Customer() { Name = "Undefined", LastName = "Undefined" };
-            _vm.Customers.Add(temp);
+            Customer temp = new Customer() { Name = "Undefined", LastName = "Undefined" };
+            
+            /*(DataContext)_cvm.Customers.Add(temp);
             _vm.SelectedCustomer = temp;
             */
         }
+
 
         private void CustomerDelete_Click(object sender, RoutedEventArgs e)
         {

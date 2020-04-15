@@ -30,9 +30,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-   
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -40,45 +39,43 @@
 
             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Client :" Width="75"/>
-                <TextBox MinWidth="300" Text="{Binding SelectedInvoice.Customer}"/>
+                <TextBox MinWidth="300" Text="{Binding SelectedInvoice.Customer.Info, Mode=OneWay}"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
-                    Orientation="Horizontal" Margin="3" >
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="3" >
                 <TextBlock Text="Identifiant :" Width="75"/>
-                <TextBox MinWidth="100" Text="{Binding SelectedInvoice.Address}"/>
+                <TextBox MinWidth="100" Text="{Binding SelectedInvoice.InvoiceId, Mode=OneWay}"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Grid.Column="1"
-                    Orientation="Horizontal" Margin="3" >
+            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="3" >
+                <TextBlock Text="Date Creation :" Width="75"/>
+                <TextBox MinWidth="100" Text="{Binding SelectedInvoice.CreationDateTime, Mode=OneWay}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="3" >
                 <TextBlock Text="Subtotal :" Width="75"/>
-                <TextBox MinWidth="100" Text="{Binding SelectedInvoice.City}"/>
+                <TextBox MinWidth="100" Text="{Binding SelectedInvoice.SubTotal}"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="3">
+            <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Province Tx :" Width="75"/>
-                <TextBox MinWidth="100" Text="{Binding SelectedInvoice.Province}"/>
+                <TextBox MinWidth="100" Text="{Binding SelectedInvoice.ProvTax, Mode=OneWay}"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="5" Grid.Column="1" 
-                    Orientation="Horizontal" Margin="3">
+            <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Federal Tax :" Width="75"/>
-                <TextBox MinWidth="125" Text="{Binding SelectedCustomer.PostalCode}"/>
+                <TextBox MinWidth="125" Text="{Binding SelectedInvoice.FedTax, Mode=OneWay}"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="6" Grid.Column="1" 
-                    Orientation="Horizontal" Margin="3">
+            <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Total :" Width="75"/>
-                <TextBox MinWidth="125" Text="{Binding SelectedCustomer.PostalCode}"/>
+                <TextBox MinWidth="125" Text="{Binding SelectedInvoice.Total, Mode=OneWay}"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="7" Grid.Column="2" Margin="6">
+            <StackPanel Grid.Row="8" Grid.Column="2" Margin="6">
                 <Button Content="Supprimer Facture" Click="CustomerDelete_Click"/>
             </StackPanel>
 
-            <Image Margin="6" Grid.Row="7"
-                Source="{Binding SelectedCustomer.PicturePath}"
-                Stretch="Uniform"/>
         </Grid>
     </Grid>
 </UserControl>

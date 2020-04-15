@@ -13,9 +13,7 @@ using System.Windows.Shapes;
 
 namespace BillingManagement.UI.Views
 {
-    /// <summary>
-    /// Logique d'interaction pour InvoiceView.xaml
-    /// </summary>
+   
     public partial class InvoicesView : UserControl
     {
         public InvoicesView()
@@ -25,7 +23,7 @@ namespace BillingManagement.UI.Views
 
         private void CustomerDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

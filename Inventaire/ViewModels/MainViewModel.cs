@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BillingManagement.UI.ViewModels.Command;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,6 +12,7 @@ namespace BillingManagement.UI.ViewModels
         private BaseViewModel contentViewModel;
         public CustomerViewModel customerViewModel;
         public InvoiceViewModel invoiceViewModel;
+        public ChangeViewCommand ChangeViewCommand { get; set; }
 
         //------------------------------------------ Definitions
 
@@ -28,6 +30,8 @@ namespace BillingManagement.UI.ViewModels
 
         public MainViewModel()
         {
+            ChangeViewCommand = new ChangeViewCommand(ChangeView);
+
             customerViewModel = new CustomerViewModel();
             invoiceViewModel = new InvoiceViewModel();
 
@@ -36,14 +40,13 @@ namespace BillingManagement.UI.ViewModels
     
         //------------------------------------------ Methodes
 
-        private void changeViewModel(string vm)
+        public void ChangeView(string vm)
         {
-            if (vm == "customer")
+            if (vm == "customers")
                 ContentViewModel = customerViewModel;
-            else if (vm == "invoice")
-            {
-                //ContentViewModel = invoiceViewModel;
-            }
+            else if (vm == "invoices")
+                ContentViewModel = invoiceViewModel;
+            
         }
     
     }

@@ -13,7 +13,7 @@ namespace BillingManagement.Models
         #region //Variables
         public static int globalID = 0;
 
-        public int invoiceId { get; private set; }    //Auto-incrementer
+        public int InvoiceId { get; private set; }    //Auto-incrementer
 
         private Customer customer;                    //Il s’agit du propriétaire de la facture
 
@@ -59,14 +59,14 @@ namespace BillingManagement.Models
         public Invoice()  //De base qui instancie CreationDateTime avec le moment de la création.
         {
             CreationDateTime = DateTime.Now;
-            invoiceId = Interlocked.Increment(ref globalID);     //  Interlocked.Increment(ref invoiceId);
+            InvoiceId = Interlocked.Increment(ref globalID);     //  Interlocked.Increment(ref invoiceId);
         }
 
         public Invoice(Customer custumer1)  //Avec un Customer en paramètre et ne pas oublier la CreationDatetime.
         {
             Customer = custumer1;
             CreationDateTime = DateTime.Now;
-            invoiceId = Interlocked.Increment(ref globalID); ;
+            InvoiceId = Interlocked.Increment(ref globalID); ;
         }
         #endregion
 
